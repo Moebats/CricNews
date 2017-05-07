@@ -1,16 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 class Test extends Component {
 
@@ -23,7 +12,6 @@ class Test extends Component {
     .then((json) => {
       if (json.status === 'ok') {
         console.log(json);
-
       } else {
         this.setState({
           title: 'This RSS is not working at the moment',
