@@ -1,20 +1,17 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import Home from './components/Home';
+import Test from './components/Test';
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{ paddingTop: 65 }}>
+    <Router>
       <Scene key="main">
-        <Scene
-          // rightTitle="Add"
-          key="home"
-          component={Home}
-          title="CricNews"
-          initial
-        />
+        <Scene key="home" component={Home} />
+        <Scene key="test" component={Test} title='Test Feed' initial />
       </Scene>
     </Router>
+
   );
 };
 
