@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, ListView, Text, View } from 'react-native';
+import { StyleSheet, ListView, View } from 'react-native';
+import TestItem from './TestItem';
+
 
 class Test extends Component {
   constructor(props) {
@@ -33,10 +35,10 @@ class Test extends Component {
   }
   render() {
     return (
-      <View style={ {flex: 1, paddingTop: 40} }>
+      <View style={{ flex: 1, paddingTop: 40 }}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData.author}</Text>}
+          renderRow={(rowData) => <TestItem item={rowData} />}
         />
       </View>
     );
