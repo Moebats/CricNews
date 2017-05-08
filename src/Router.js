@@ -8,7 +8,7 @@ const RouterComponent = () => {
     <Router>
       <Scene key="main">
         <Scene key="home" component={Home} />
-        <Scene key="test" component={Test} title='Test Feed' initial />
+        <Scene key="test" component={Test} title='Test Feed' />
       </Scene>
     </Router>
 

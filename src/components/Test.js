@@ -1,20 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StyleSheet, ListView, View } from 'react-native';
+import TestItem from './TestItem';
+
 
 class Test extends Component {
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.state = {
+      dataSource: ds.cloneWithRows([
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
+      ])
+    };
+  }
 
-  componentDidMount() {
+
+  componentWillMount() {
     const parseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
     const url = 'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9';
 
@@ -22,30 +23,23 @@ class Test extends Component {
     .then(response => response.json())
     .then((json) => {
       if (json.status === 'ok') {
-        console.log(json);
-
-      } else {
+        console.log(json.items);
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
-          title: 'This RSS is not working at the moment',
-          link: url,
-          isLoading: false
+          dataSource: ds.cloneWithRows(json.items)
         });
+      } else {
+        console.log('error');
       }
     });
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View style={{ flex: 1, paddingTop: 40 }}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <TestItem item={rowData} />}
+        />
       </View>
     );
   }
