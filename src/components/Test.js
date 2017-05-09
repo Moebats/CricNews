@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, ListView, View } from 'react-native';
+import { Title } from 'native-base';
 import TestItem from './TestItem';
 
 
@@ -30,11 +31,13 @@ class Test extends Component {
     });
   }
   render() {
+    const { title, color } = this.props;
     return (
-      <View style={{ flex: 1, paddingTop: 40 }}>
+      <View style={{ flex: 1, paddingTop: 10 }}>
+        <Title>{title}</Title>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={this.props.color} />}
+          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={color} />}
         />
       </View>
     );
