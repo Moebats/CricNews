@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, ListView, View } from 'react-native';
-import { Title } from 'native-base';
+import { Title, Button } from 'native-base';
 import NewsItem from './NewsItem';
 
 
