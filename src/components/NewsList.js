@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { StyleSheet, ListView, View } from 'react-native';
-import TestItem from './TestItem';
+import { Title } from 'native-base';
+import NewsItem from './NewsItem';
 
 
-class Test extends Component {
+class NewsList extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([
-        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
       ])
     };
   }
 
-
   componentWillMount() {
     const parseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    const url = 'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9';
-
-    fetch(parseUrl + url)
+    fetch(parseUrl + this.props.url)
     .then(response => response.json())
     .then((json) => {
       if (json.status === 'ok') {
@@ -34,11 +31,19 @@ class Test extends Component {
     });
   }
   render() {
+    const { title, color } = this.props;
     return (
-      <View style={{ flex: 1, paddingTop: 40 }}>
+      <View style={{ flex: 1, paddingTop: 10 }}>
+        <Title>{title}</Title>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem item={rowData} />}
+          renderRow={(rowData) =>
+            <NewsItem
+              style={{ marginLeft: 5, marginRight: 5 }}
+              item={rowData}
+              color={color}
+            />
+          }
         />
       </View>
     );
@@ -64,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Test;
+export default NewsList;
