@@ -19,10 +19,9 @@ class TestItem extends Component {
   shareMessage = () => {
     const { link } = this.props.item;
   Share.share({
-    url: link
+    message: link
   });
 }
-
   render() {
     const { title, pubDate, description } = this.props.item;
     return (
