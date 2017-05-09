@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, ListView, View } from 'react-native';
-import { Title } from 'native-base';
+import { StyleSheet, ListView, View, TouchableOpacity } from 'react-native';
+import { Title, Button, Container, Header, Text } from 'native-base';
 import NewsItem from './NewsItem';
 
 
@@ -31,10 +31,9 @@ class NewsList extends Component {
     });
   }
   render() {
-    const { title, color } = this.props;
+    const { color } = this.props;
     return (
-      <View style={{ flex: 1, paddingTop: 10 }}>
-        <Title>{title}</Title>
+      <Container style={{ flex: 1, paddingTop: 10 }}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) =>
@@ -45,7 +44,7 @@ class NewsList extends Component {
             />
           }
         />
-      </View>
+      </Container>
     );
   }
 }
@@ -70,3 +69,9 @@ const styles = StyleSheet.create({
 });
 
 export default NewsList;
+
+// <TouchableOpacity onPress={this.handleClick} >
+//   <Button block transparent success>
+//     <Text> Click here to refresh the news </Text>
+//   </Button>
+// </TouchableOpacity>

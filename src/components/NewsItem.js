@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body } from 'native-base';
-import { Linking, TouchableOpacity, Share, View } from 'react-native';
+import { Card, CardItem, Text, Button, Icon, Body } from 'native-base';
+import { Linking, TouchableOpacity, Share } from 'react-native';
 
 
 class NewsItem extends Component {
