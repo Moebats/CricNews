@@ -14,7 +14,6 @@ class Test extends Component {
     };
   }
 
-
   componentWillMount() {
     const parseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
     const url = 'http://www.espncricinfo.com/rss/content/story/feeds/0.xml';
@@ -38,7 +37,7 @@ class Test extends Component {
       <View style={{ flex: 1, paddingTop: 40 }}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem item={rowData} />}
+          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} />}
         />
       </View>
     );
