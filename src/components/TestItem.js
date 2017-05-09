@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body } from 'native-base';
-import { Linking, TouchableOpacity, TouchableHighlight, Share, View } from 'react-native';
+import { Linking, TouchableOpacity, Share, View } from 'react-native';
 
 
 class TestItem extends Component {
@@ -16,9 +16,10 @@ class TestItem extends Component {
     });
   };
 
-  shareMessage() {
+  shareMessage = () => {
+    const { link } = this.props.item;
   Share.share({
-    message: 'React Native | A framework for building native apps using React'
+    url: link
   });
 }
 
@@ -30,7 +31,7 @@ class TestItem extends Component {
               <CardItem>
                 <Body>
                   <Text
-                  style={{ 
+                  style={{
                   fontWeight: 'bold',
                   paddingLeft: 3,
                   paddingRight: 3,
