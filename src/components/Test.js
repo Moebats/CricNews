@@ -37,7 +37,13 @@ class Test extends Component {
         <Title>{title}</Title>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={color} />}
+          renderRow={(rowData) =>
+            <TestItem
+              style={{ marginLeft: 5, marginRight: 5 }}
+              item={rowData}
+              color={color}
+            />
+          }
         />
       </View>
     );

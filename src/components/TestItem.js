@@ -37,7 +37,6 @@ class TestItem extends Component {
                   color: this.props.color }}
                   > {title}
                   </Text>
-                  <Text note>Cricinfo</Text>
                 </Body>
               </CardItem>
                 <CardItem cardBody>
