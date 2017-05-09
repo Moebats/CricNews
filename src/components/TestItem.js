@@ -18,14 +18,14 @@ class TestItem extends Component {
 
   render() {
     const { title, pubDate, description } = this.props.item;
-
     return (
       <TouchableOpacity
-        onPress={this.handleClick}>
+        onPress={this.handleClick}
+      >
               <Card>
                   <CardItem>
                           <Body>
-                              <Text>{title}</Text>
+                              <Text style={{ fontWeight: 'bold', paddingLeft: 3, paddingRight: 3, color: this.props.color }} >{title}</Text>
                               <Text note>Cricinfo</Text>
                           </Body>
                     </CardItem>
@@ -36,10 +36,10 @@ class TestItem extends Component {
                     </CardItem>
                     <CardItem>
                         <Button transparent>
-                            <Icon active name="thumbs-up" />
-                            <Text>Share</Text>
+                            <Icon style={{ fontSize: 15, color: this.props.color }} active name="redo" />
+                            <Text note>Share</Text>
                         </Button>
-                        <Text>{pubDate}</Text>
+                        <Text note>{pubDate}</Text>
                   </CardItem>
              </Card>
     </TouchableOpacity>

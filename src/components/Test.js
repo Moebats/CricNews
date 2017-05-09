@@ -37,7 +37,7 @@ class Test extends Component {
       <View style={{ flex: 1, paddingTop: 40 }}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} />}
+          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={'green'} />}
         />
       </View>
     );
