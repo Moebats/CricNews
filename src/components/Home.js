@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import { Container, Header, Content, Body, Title, Tab, Tabs } from 'native-base';
-import Test from './Test';
+import NewsList from './NewsList';
 
 class Home extends Component {
   render() {
@@ -20,16 +20,16 @@ class Home extends Component {
             </Header>
             <Tabs>
                 <Tab heading="Cricinfo">
-                    <Test url={'http://www.espncricinfo.com/rss/content/story/feeds/0.xml'} color={'blue'} title={'Cricinfo World cricket news'} />
+                    <NewsList url={'http://www.espncricinfo.com/rss/content/story/feeds/0.xml'} color={'blue'} title={'Cricinfo World cricket news'} />
                 </Tab>
                 <Tab heading="BBC">
-                    <Test url={'http://www.bbc.com/sport/cricket/rss.xml'} color={'red'} title={'BBC World Cricket news'} />
+                    <NewsList url={'http://www.bbc.com/sport/cricket/rss.xml'} color={'red'} title={'BBC World Cricket news'} />
                 </Tab>
                 <Tab heading="PakPass">
-                    <Test url={'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9'} color={'#1dba37'} title={'PakPassion forum latest posts'} />
+                    <NewsList url={'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9'} color={'#1dba37'} title={'PakPassion forum latest posts'} />
                 </Tab>
                 <Tab heading="CI Pak">
-                    <Test url={'http://www.espncricinfo.com/rss/content/story/feeds/7.xml'} color={'green'} title={'Cricinfo Pak news section'} />
+                    <NewsList url={'http://www.espncricinfo.com/rss/content/story/feeds/7.xml'} color={'green'} title={'Cricinfo Pak news section'} />
                 </Tab>
             </Tabs>
             </Container>

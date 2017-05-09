@@ -3,7 +3,7 @@ import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body } fr
 import { Linking, TouchableOpacity, Share, View } from 'react-native';
 
 
-class TestItem extends Component {
+class NewsItem extends Component {
 
   handleClick = () => {
     const { link } = this.props.item;
@@ -59,4 +59,4 @@ class TestItem extends Component {
   }
 }
 
-export default TestItem;
+export default NewsItem;

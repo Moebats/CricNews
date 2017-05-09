@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, ListView, View } from 'react-native';
 import { Title } from 'native-base';
-import TestItem from './TestItem';
+import NewsItem from './NewsItem';
 
 
-class Test extends Component {
+class NewsList extends Component {
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -38,7 +38,7 @@ class Test extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) =>
-            <TestItem
+            <NewsItem
               style={{ marginLeft: 5, marginRight: 5 }}
               item={rowData}
               color={color}
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Test;
+export default NewsList;
