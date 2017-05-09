@@ -6,10 +6,10 @@ import { Linking, TouchableOpacity } from 'react-native';
 class TestItem extends Component {
 
   handleClick = () => {
-    const { guid } = this.props.item;
-    Linking.canOpenURL(guid).then(supported => {
+    const { link } = this.props.item;
+    Linking.canOpenURL(link).then(supported => {
       if (supported) {
-        Linking.openURL(guid);
+        Linking.openURL(link);
       } else {
         console.log('Cannot open URL');
       }

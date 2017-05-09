@@ -9,16 +9,13 @@ class Test extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([
-        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
       ])
     };
   }
 
   componentWillMount() {
     const parseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    const url = 'http://www.espncricinfo.com/rss/content/story/feeds/0.xml';
-
-    fetch(parseUrl + url)
+    fetch(parseUrl + this.props.url)
     .then(response => response.json())
     .then((json) => {
       if (json.status === 'ok') {
@@ -37,7 +34,7 @@ class Test extends Component {
       <View style={{ flex: 1, paddingTop: 40 }}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={'green'} />}
+          renderRow={(rowData) => <TestItem style={{ marginLeft: 5, marginRight: 5 }} item={rowData} color={this.props.color} />}
         />
       </View>
     );

@@ -15,11 +15,17 @@ class Home extends Component {
       <Container>
             <Header hasTabs />
             <Tabs>
-                <Tab heading="PakPassion">
-                    <Test />
-                </Tab>
                 <Tab heading="Cricinfo">
-                    <Test />
+                    <Test url={'http://www.espncricinfo.com/rss/content/story/feeds/0.xml'} color={'blue'} />
+                </Tab>
+                <Tab heading="BBC">
+                    <Test url={'http://www.bbc.com/sport/cricket/rss.xml'} color={'red'} />
+                </Tab>
+                <Tab heading="PakPassion">
+                    <Test url={'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9'} color={'#1dba37'} />
+                </Tab>
+                <Tab heading="CI Pak">
+                    <Test url={'http://www.espncricinfo.com/rss/content/story/feeds/7.xml'} color={'green'} />
                 </Tab>
             </Tabs>
             </Container>
