@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import { Container, Header, Content, Tab, Tabs } from 'native-base';
+import { Container, Header, Content, Body, Title, Tab, Tabs } from 'native-base';
 import Test from './Test';
 
 class Home extends Component {
@@ -13,7 +13,11 @@ class Home extends Component {
     return (
 
       <Container>
-            <Header hasTabs />
+            <Header hasTabs >
+              <Body>
+                <Title>Cricket News App</Title>
+              </Body>
+            </Header>
             <Tabs>
                 <Tab heading="Cricinfo">
                     <Test url={'http://www.espncricinfo.com/rss/content/story/feeds/0.xml'} color={'blue'} />
@@ -21,7 +25,7 @@ class Home extends Component {
                 <Tab heading="BBC">
                     <Test url={'http://www.bbc.com/sport/cricket/rss.xml'} color={'red'} />
                 </Tab>
-                <Tab heading="PakPassion">
+                <Tab heading="PakPass">
                     <Test url={'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9'} color={'#1dba37'} />
                 </Tab>
                 <Tab heading="CI Pak">
