@@ -17,7 +17,7 @@ class Test extends Component {
 
   componentWillMount() {
     const parseUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
-    const url = 'http://www.pakpassion.net/ppforum/external.php?type=RSS2&forumids=9';
+    const url = 'http://www.espncricinfo.com/rss/content/story/feeds/0.xml';
 
     fetch(parseUrl + url)
     .then(response => response.json())

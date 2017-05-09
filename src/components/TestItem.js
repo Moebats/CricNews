@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, ListItem, Thumbnail, Text, Body, Left, Right, Icon } from 'native-base';
+import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body } from 'native-base';
 
 
 class TestItem extends Component {
@@ -8,15 +8,29 @@ class TestItem extends Component {
     const { title, description } = this.props.item;
 
     return (
-                <ListItem avatar>
-                    <Body>
-                        <Text>{title}</Text>
-                        <Text note>Description: {description}</Text>
-                    </Body>
-                    <Right>
-                        <Icon name='chatboxes' style={{ fontSize: 20, color: '#1ec949' }} />
-                    </Right>
-                </ListItem>
+                        <Card >
+                            <CardItem>
+                                    <Body>
+                                        <Text>{title}</Text>
+                                        <Text note>Cricinfo</Text>
+                                    </Body>
+                              </CardItem>
+                              <CardItem cardBody>
+                                  <Text style={{ paddingLeft: 10, paddingRight: 10 }} note>Description: {description}</Text>
+                              </CardItem>
+                              <CardItem>
+                                  <Button transparent>
+                                      <Icon active name="thumbs-up" />
+                                      <Text>12 Likes</Text>
+                                  </Button>
+                                  <Button transparent>
+                                      <Icon active name="chatbubbles" />
+                                      <Text>4 Comments</Text>
+                                  </Button>
+                                  <Text>11h ago</Text>
+                            </CardItem>
+                       </Card>
+
     );
   }
 }
