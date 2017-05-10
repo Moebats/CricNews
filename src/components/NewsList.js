@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, ListView, View, TouchableOpacity, RefreshControl } from 'react-native';
-import { Title, Button, Container, Header, Text, Spinner, Content } from 'native-base';
+import { StyleSheet, ListView, RefreshControl } from 'react-native';
+import { Container, Spinner } from 'native-base';
 import NewsItem from './NewsItem';
 
 
@@ -11,7 +11,8 @@ class NewsList extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([
       ]),
-      refreshing: false
+      refreshing: false,
+      loading: true
     };
   }
 
@@ -24,13 +25,15 @@ class NewsList extends Component {
         console.log(json.items);
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
-          dataSource: ds.cloneWithRows(json.items)
+          dataSource: ds.cloneWithRows(json.items),
+          loading: false
         });
       } else {
         console.log('error');
       }
     });
   }
+
 
   _onRefresh() {
     this.setState({ refreshing: true });
@@ -51,8 +54,10 @@ class NewsList extends Component {
     });
   }
 
-
-  render() {
+  renderView = () => {
+    if (this.state.loading) {
+      return <Spinner />;
+    }
     const { color } = this.props;
     return (
       <Container style={{ flex: 1, paddingTop: 10 }}>
@@ -73,6 +78,14 @@ class NewsList extends Component {
           }
         />
      </Container>
+   );
+  }
+
+  render() {
+    return (
+      <Container>
+        {this.renderView()}
+      </Container>
     );
   }
 }
