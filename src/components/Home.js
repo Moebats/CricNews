@@ -3,6 +3,10 @@ import { Container, Header, Body, Title, Tab, Tabs } from 'native-base';
 import NewsList from './NewsList';
 
 class Home extends Component {
+  static navigationOptions = {
+    title: 'Welcome',
+    header: null
+  };
   render() {
     return (
 
